@@ -61,13 +61,8 @@ def listener(q: mp.Queue):
             for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
                 data = stream.read(CHUNK)
                 frames.append(data)
-                print(i)
-
-
-
                 # save the audio frames as .wav file
-
-                
+        
             waveFile = wave.open(filename, 'wb')
             waveFile.setnchannels(CHANNELS)
             waveFile.setsampwidth(audio.get_sample_size(FORMAT))
